@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
+import Navigation from './Navigation';
 import '../sass/style.scss';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, className }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -27,7 +28,8 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <div>
+        <Navigation />
+        <div className={className}>
           {children}
         </div>
       </>
@@ -37,6 +39,11 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
+
+Layout.defaultProps = {
+  className: String,
+}
 
 export default Layout;

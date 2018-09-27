@@ -1,3 +1,22 @@
-@import 'globals/colors';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
-body { background: $black; }
+html {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background: #1b1b1b;
+  margin: 0;
+  min-height: 100vh;
+}
+
+// globals
+@import 'globals/colors';
+@import 'globals/helpers';
+
+// partials
+@import 'partials/navigation';
+
+// pages
+@import 'pages/default';
