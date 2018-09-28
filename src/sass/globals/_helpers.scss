@@ -1,5 +1,6 @@
 $container: 960px;
 .container {
+  position: relative;
   width: 100%;
   max-width: $container;
   margin: 0 auto;

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Navigation from './Navigation';
 import '../sass/style.scss';
 
 const Layout = ({ children, className }) => (
@@ -28,7 +27,6 @@ const Layout = ({ children, className }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Navigation />
         <div className={className}>
           {children}
         </div>

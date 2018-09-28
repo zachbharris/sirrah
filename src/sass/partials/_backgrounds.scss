@@ -1,0 +1,10 @@
+.background-skew {
+  position: absolute;
+  width: 35%;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  background: $white;
+  transform-origin: bottom right;
+  transform: skewX(-3deg);
+}
