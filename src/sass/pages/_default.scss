@@ -13,15 +13,26 @@
       grid-area: header;
       color: $white;
 
-      h1, p { margin: 0; }
+      h1, p {
+        animation: fadeInFromLeft 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        margin: 0;
+        transform: translateX(-100%);
+        will-change: transform;
+      }
       h1 {
         font-size: 2rem;
         font-weight: 600;
       }
-      p { font-size: 1rem; }
+      p {
+        font-size: 1rem;
+        animation-delay: 100ms;
+      }
     }
     .terminal {
       grid-area: terminal;
+      animation: fadeInFromRight 2500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+      transform: translateX(0);
+      will-change: transform;
     }
   }
 }
