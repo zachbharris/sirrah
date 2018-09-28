@@ -21,7 +21,7 @@ class Terminal extends React.Component {
           </div>
         </header>
         <div className="terminal-body">
-          <p>potato</p>
+          <p><span className="terminal-type">[~]</span> $</p>
         </div>
       </section>
     );
