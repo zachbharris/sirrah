@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 
 // import pages
-import { Home, NotFound } from '../pages'
+import { Home, NotFound } from '.'
 
 const Router = () => (
   <BrowserRouter>

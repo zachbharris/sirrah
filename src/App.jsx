@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import theme from 'styled-theming'
 
 // import router for pages
-import Router from './router';
+import Router from './pages/router';
 
 const backgroundColor = theme("mode", {
   light: "#F4F5F1",
