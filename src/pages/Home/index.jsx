@@ -1,5 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const Home = () => (<p>I am the home page now</p>)
+import Animation from "./Animation";
 
-export default Home
+const Home = ({ animation = true }) => {
+  if (animation) return <Animation text="Hello." />;
+  return <p>hello</p>;
+};
+
+export default Home;
