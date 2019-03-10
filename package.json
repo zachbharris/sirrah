@@ -21,7 +21,9 @@
     "styled-theming": "^2.2.0"
   },
   "devDependencies": {
-    "prettier": "^1.16.4"
+    "eslint": "^5.15.1",
+    "prettier": "^1.16.4",
+    "prettier-eslint": "^8.8.2"
   },
   "keywords": [
     "gatsby"
