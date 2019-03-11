@@ -1,0 +1,44 @@
+[
+  {
+    "name": "twitter",
+    "url": "https://twitter.com/zachbharris",
+    "icon": "fab fa-twitter",
+    "enabled": true
+  },
+  {
+    "name": "github",
+    "url": "https://github.com/zachbharris",
+    "icon": "fab fa-github",
+    "enabled": true
+  },
+  {
+    "name": "instagram",
+    "url": "https://instagram.com/zachbharris",
+    "icon": "fab fa-instagram",
+    "enabled": false
+  },
+  {
+    "name": "dribbble",
+    "url": "https://dribbble.com/zachbharris",
+    "icon": "fab fa-instagram",
+    "enabled": false
+  },
+  {
+    "name": "twitch",
+    "url": "https://twitch.tv/trobleton",
+    "icon": "fab fa-twitch",
+    "enabled": false
+  },
+  {
+    "name": "codepen",
+    "url": "https://codepen.io/zachbharris",
+    "icon": "fab fa-codepen",
+    "enabled": true
+  },
+  {
+    "name": "linkedin",
+    "url": "https://linkedin.com/in/zachbharris",
+    "icon": "fab fa-linkedin",
+    "enabled": true
+  }
+]
