@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
-import styled, { createGlobalStyle } from "styled-components"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import { justWhite, hensonGold, soulBlack } from "../../theme/colors"
+import { justWhite, hensonGold, soulBlack } from '../../theme/colors'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -45,15 +45,15 @@ export default Layout
 
 const GlobalStyle = createGlobalStyle`
   html {
-    background-color: ${soulBlack};
-    color: ${justWhite};
+    background-color: ${ soulBlack };
+    color: ${ justWhite };
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     height: 100%;
   }
 
   a {
-    color: ${hensonGold};
+    color: ${ hensonGold };
     text-decoration: none;
 
     &:hover {
