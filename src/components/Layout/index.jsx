@@ -10,6 +10,8 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import Navbar from './navbar'
+
 import { justWhite, hensonGold, soulBlack } from '../../theme/colors'
 
 const Layout = ({ children }) => (
@@ -24,21 +26,24 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <Wrapper>
+      <>
         <GlobalStyle />
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </Wrapper>
+        <Navbar />
+        <Wrapper>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </Wrapper>
+      </>
     )}
   />
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout
@@ -50,6 +55,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     height: 100%;
+  }
+
+  body {
+    margin: 0;
   }
 
   a {

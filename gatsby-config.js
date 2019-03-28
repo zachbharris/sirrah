@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Zach Harris`,
     description: `Zach Harris, UI Engineer in St. Louis`,
-    author: `@zachbharris`,
+    author: `@zachbharris`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -10,8 +10,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${ __dirname }/src/images`
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -24,9 +24,9 @@ module.exports = {
         background_color: `#1A191A`,
         theme_color: `#E0A730`,
         display: `standalone`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
-        include_favicon: true,
-      },
+        icon: `src/images/favicon.png`,
+        include_favicon: true
+      }
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -34,13 +34,14 @@ module.exports = {
         fonts: [
           {
             family: `Open Sans`,
-            variants: [`400`, `600`, `700`],
+            variants: [`400`, `600`, `700`]
           },
-        ],
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
-  ],
+          {
+            family: `IBM Plex Sans`,
+            variants: [`400`, `500`, `700`]
+          }
+        ]
+      }
+    }
+  ]
 }
