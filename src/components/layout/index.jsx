@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     background-color: ${ soulBlack };
     color: ${ justWhite };
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IMB Plex Sans', sans-serif;
     margin: 0;
     height: 100%;
   }
@@ -68,6 +68,10 @@ const GlobalStyle = createGlobalStyle`
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  p {
+    font-family: 'Open Sans', 'IBM Plex Sans', sans-serif;
   }
 `
 

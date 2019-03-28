@@ -1,7 +1,7 @@
 {
   "name": "sirrah",
   "private": true,
-  "description": "Zach Harris, UI Engineer based in St. Louis",
+  "description": "Zach Harris, UI Engineer in St. Louis",
   "version": "0.1.0",
   "author": "Zach Harris <hi@zachbharris.com>",
   "dependencies": {

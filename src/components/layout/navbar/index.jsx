@@ -28,7 +28,7 @@ const socials = [
   }
 ]
 
-const Image = () => (
+const CallMeImage = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -48,7 +48,7 @@ const Image = () => (
 const Navbar = () => (
   <Wrapper>
     <HomeLink to="/">
-      <Image />
+      <CallMeImage />
       <span>Zach Harris</span>
     </HomeLink>
 
