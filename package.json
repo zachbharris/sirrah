@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "sirrah",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Zach Harris, UI Engineer based in St. Louis",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Zach Harris <hi@zachbharris.com>",
   "dependencies": {
     "gatsby": "^2.3.3",
     "gatsby-image": "^2.0.35",
