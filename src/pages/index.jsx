@@ -11,7 +11,8 @@ const keywords = [
   `saint louis`,
   `st. louis`,
   `front end developer`,
-  `javascript`
+  `javascript`,
+  `Booty`
 ];
 
 const IndexPage = () => (
