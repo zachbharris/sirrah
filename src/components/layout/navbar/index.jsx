@@ -53,10 +53,6 @@ const Navbar = () => (
     </HomeLink>
 
     <Nav>
-      <nav>
-        <Link to="/">Blog</Link>
-      </nav>
-
       {socials.map((social, index) => (
         <Social
           key={index}
@@ -79,7 +75,7 @@ const Wrapper = styled.div`
 
   background-color: ${ soulBlack };
   border-bottom: 1px solid ${ hensonGold };
-  font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
   padding: 0.5rem;
 `
 

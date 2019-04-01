@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react'
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const keywords = [
   `developer`,
   `engineer`,
   `react`,
-  `ui engineer`,
   `saint louis`,
   `st. louis`,
   `front end developer`,
-  `javascript`,
-  `Booty`
-];
+  `front end engineer`,
+  `ui engineer`,
+  `javascript`
+]
 
 const IndexPage = () => (
   <Layout>
@@ -22,7 +22,6 @@ const IndexPage = () => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
   </Layout>
-);
+)
 
-9635;
-export default IndexPage;
+export default IndexPage
