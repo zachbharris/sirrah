@@ -1,6 +1,7 @@
 import React from "react";
 import { useStore } from "easy-peasy";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 
 import Card from "../../components/card";
 import Divider from "../../components/divider";
@@ -14,6 +15,11 @@ const HomePage = () => {
   const user = useStore(state => state.user.data);
   return (
     <Container>
+      <Helmet
+        meta={[
+          { name: "description", content: user.bio }
+        ]}
+      />
       <Profile>
         <ProfileImage src={user.avatar_url} alt={user.name} />
         <ProfileName>{user.name}</ProfileName>
