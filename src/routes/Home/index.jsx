@@ -69,6 +69,7 @@ const Container = styled.div`
   max-width: 902px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 const Profile = styled.div`

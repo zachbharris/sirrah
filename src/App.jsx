@@ -33,5 +33,6 @@ const GlobalStyles = createGlobalStyle`
 
   body { 
     margin: 0;
+    position: relative;
   }
 `;

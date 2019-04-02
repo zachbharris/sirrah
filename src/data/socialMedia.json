@@ -1,0 +1,6 @@
+[
+  { "title": "spotify", "icon": "fab fa-spotify", "href": "https://open.spotify.com/user/12133482232?si=GjqSB-WlTTGaMjMCSsucOA" },
+  { "title": "twitter", "icon": "fab fa-twitter", "href": "https://twitter.com/zachbharris" },
+  { "title": "github", "icon": "fab fa-github", "href": "https://github.com/zachbharris" },
+  { "title": "mail", "icon": "fas fa-envelope", "href": "mailto:hi@zachbharris.com" }
+]
