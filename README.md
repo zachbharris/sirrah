@@ -13,8 +13,7 @@ reverse("sirrah")
 
 1. Clone the repo
 2. `npm install` to snatch the required dependencies
-3. `npm i -g gatsby-cli` to globally install the gatsby command line interface
-4. `gatsby develop` to begin the development server
+3. `npm start` to begin the development server
 
 ## Disclaimer
 
