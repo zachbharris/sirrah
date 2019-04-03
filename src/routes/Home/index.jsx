@@ -22,7 +22,7 @@ const HomePage = () => {
     },
     to: {
       opacity: loading ? 0 : 1,
-      transform: `translateY(${loading ? '-2rem' : '0'})`
+      transform: `translateY(${loading ? '2rem' : '0'})`
     },
     delay: 750,
     config: config.molasses

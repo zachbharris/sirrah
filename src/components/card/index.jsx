@@ -1,21 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { animated, useSpring, config } from 'react-spring';
 
 import Title from './title';
 import Description from './description';
 import Languages from './languages';
 import Company from './company';
-import { justWhite } from '../../theme/colors';
+import { justWhite, soulBlack } from '../../theme/colors';
+
+const trans = s => `scale(${s})`;
 
 const Card = ({ title, description, languages, company, link }) => {
+  const [props, set] = useSpring(() => ({
+    s: 1,
+    config: config.wobbly
+  }));
+
+  const { s } = props;
+
   return (
-    <Wrapper href={link} target="_blank" rel="noopener noreferrer">
-      <Title title={title} />
-      <Description description={description} />
-      <Languages languages={languages} />
-      <Company company={company} />
-    </Wrapper>
+    <animated.a
+      style={{
+        transform: s.interpolate(trans),
+        textDecoration: 'none',
+        zIndex: 1
+      }}
+      onMouseEnter={() => set({ s: 1.025 })}
+      onMouseLeave={() => set({ s: 1 })}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Wrapper>
+        <Title title={title} />
+        <Description description={description} />
+        <Languages languages={languages} />
+        <Company company={company} />
+      </Wrapper>
+    </animated.a>
   );
 };
 
@@ -32,7 +55,7 @@ Card.defaultProps = {
   company: ''
 };
 
-const Wrapper = styled.a`
+const Wrapper = styled.div`
   display: grid;
   grid-template-areas:
     'title title'
@@ -42,6 +65,7 @@ const Wrapper = styled.a`
 
   border: 1px solid #656565;
   border-radius: 3px;
+  background-color: ${soulBlack};
   color: ${justWhite};
   padding: 1rem;
   text-decoration: none;
