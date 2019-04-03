@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { javascript, php, css } from "../../theme/colors";
+import { javascript, php, css } from '../../theme/colors';
 
 const Languages = ({ languages }) => {
   if (!languages) return null;
@@ -10,8 +10,8 @@ const Languages = ({ languages }) => {
       <Color lang={languages} />
       <span>{languages}</span>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   grid-area: languages;
@@ -26,10 +26,10 @@ const Color = styled.span`
   width: 12px;
   border-radius: 50%;
   background-color: ${({ lang }) => {
-    if (lang.toLowerCase() === "javascript") return javascript;
-    if (lang.toLowerCase() === "php") return php;
-    if (lang.toLowerCase() === "css") return css;
-    return "#eee";
+    if (lang.toLowerCase() === 'javascript') return javascript;
+    if (lang.toLowerCase() === 'php') return php;
+    if (lang.toLowerCase() === 'css') return css;
+    return '#eee';
   }};
   margin-right: 0.5rem;
 `;

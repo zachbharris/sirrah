@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Description = ({ description }) => {
   if (!description) return null;
   return <Text>{description}</Text>;
-}
+};
 
 export default Description;
 

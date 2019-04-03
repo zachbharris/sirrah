@@ -1,14 +1,14 @@
-import React from "react";
-import { useStore } from "easy-peasy";
-import styled from "styled-components";
-import Helmet from "react-helmet";
-import { animated, useSpring, config } from "react-spring";
+import React from 'react';
+import { useStore } from 'easy-peasy';
+import styled from 'styled-components';
+import Helmet from 'react-helmet';
+import { animated, useSpring, config } from 'react-spring';
 
-import Card from "../../components/card";
-import Divider from "../../components/divider";
-import work from "../../data/work.json";
+import Card from '../../components/card';
+import Divider from '../../components/divider';
+import work from '../../data/work.json';
 
-import { border } from "../../theme/colors";
+import { border } from '../../theme/colors';
 
 const HomePage = () => {
   const projects = useStore(state => state.projects.data);
@@ -21,7 +21,7 @@ const HomePage = () => {
     },
     to: {
       opacity: loading ? 0 : 1,
-      transform: `translateY(${ loading ? "-1rem" : "0" })`
+      transform: `translateY(${loading ? '-1rem' : '0'})`
     },
     delay: 750,
     config: config.molasses
@@ -30,11 +30,7 @@ const HomePage = () => {
   return (
     <animated.div style={props}>
       <Container>
-        <Helmet
-          meta={[
-            { name: "description", content: user.bio }
-          ]}
-        />
+        <Helmet meta={[{ name: 'description', content: user.bio }]} />
         <Profile>
           <ProfileImage src={user.avatar_url} alt={user.name} />
           <ProfileName>{user.name}</ProfileName>
@@ -49,7 +45,7 @@ const HomePage = () => {
               <span>{user.company}</span>
             </ProfileItem>
           )}
-          
+
           {user.location && (
             <ProfileItem>
               <div>
@@ -65,7 +61,15 @@ const HomePage = () => {
           <Card.Group>
             {projects.map(project => {
               const { name, description, language, html_url } = project;
-              return <Card key={project.id} title={name} description={description} languages={language} link={html_url} />
+              return (
+                <Card
+                  key={project.id}
+                  title={name}
+                  description={description}
+                  languages={language}
+                  link={html_url}
+                />
+              );
             })}
           </Card.Group>
 
@@ -73,20 +77,29 @@ const HomePage = () => {
           <Card.Group>
             {work.map((w, index) => {
               const { name, description, language, company, url } = w;
-              return <Card key={index} title={name} description={description} languages={language} company={company} link={url} />
+              return (
+                <Card
+                  key={index}
+                  title={name}
+                  description={description}
+                  languages={language}
+                  company={company}
+                  link={url}
+                />
+              );
             })}
           </Card.Group>
         </Content>
       </Container>
     </animated.div>
-  )
-}
+  );
+};
 
 const Container = styled.div`
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: 230px 1fr;
-  grid-template-areas: "profile content";
+  grid-template-areas: 'profile content';
   max-width: 900px;
   margin: 0 auto;
 
@@ -96,7 +109,7 @@ const Container = styled.div`
 
   @media screen and (max-width: 940px) {
     grid-template-columns: auto;
-    grid-template-areas: "profile" "content";
+    grid-template-areas: 'profile' 'content';
   }
 `;
 
@@ -105,13 +118,13 @@ const Profile = styled.div`
   img {
     width: 100%;
   }
-`
+`;
 
 const ProfileImage = styled.img`
   width: 100%;
   max-width: 230px;
   border-radius: 3px;
-`
+`;
 
 const ProfileName = styled.h2`
   font-size: 1.5rem;
@@ -163,6 +176,6 @@ const Content = styled.div`
     margin-top: 0;
     margin-bottom: 1rem;
   }
-`
+`;
 
 export default HomePage;

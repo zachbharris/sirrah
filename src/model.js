@@ -1,5 +1,5 @@
-import { thunk, action } from "easy-peasy";
-import axios from "axios";
+import { thunk, action } from 'easy-peasy';
+import axios from 'axios';
 
 const model = {
   loading: true,
@@ -14,19 +14,29 @@ const model = {
     // thunks
     fetchProjects: thunk(async actions => {
       await axios
-        .get("https://api.github.com/users/zachbharris/repos")
+        .get('https://api.github.com/users/zachbharris/repos')
         .then(res => {
-          const activeProjects = [152986140, 137087074, 149695011, 136203579, 179188463];
+          const activeProjects = [
+            152986140,
+            137087074,
+            149695011,
+            136203579,
+            179188463
+          ];
           const filteredProjects = res.data.filter(project => {
             return activeProjects.includes(project.id);
           });
 
           filteredProjects.push({
-            id: 0, name: "view all repositories →", html_url: "https://github.com/zachbharris?tab=repositories", description: "", language: ""
-          })
-          actions.fetched(filteredProjects)
+            id: 0,
+            name: 'view all repositories →',
+            html_url: 'https://github.com/zachbharris?tab=repositories',
+            description: '',
+            language: ''
+          });
+          actions.fetched(filteredProjects);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     })
   },
   user: {
@@ -40,7 +50,7 @@ const model = {
     // thunks
     fetchUser: thunk(async actions => {
       await axios
-        .get("https://api.github.com/users/zachbharris")
+        .get('https://api.github.com/users/zachbharris')
         .then(res => actions.fetched(res.data))
         .catch(err => console.log(err));
     })
@@ -58,6 +68,6 @@ const model = {
     await dispatch.projects.fetchProjects();
     await dispatch.isLoading(false);
   })
-}
+};
 
 export default model;

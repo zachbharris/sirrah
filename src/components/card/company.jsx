@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { border } from "../../theme/colors";
+import { border } from '../../theme/colors';
 
 const Company = ({ company }) => {
   if (!company) return null;
@@ -11,7 +11,7 @@ const Company = ({ company }) => {
       <span>{company}</span>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.div`
   grid-area: company;

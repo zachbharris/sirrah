@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react';
-import { useActions } from "easy-peasy";
-import { createGlobalStyle } from "styled-components"
+import { useActions } from 'easy-peasy';
+import { createGlobalStyle } from 'styled-components';
 
-import Routes from "./routes";
-import { justWhite, soulBlack } from "./theme/colors";
+import Routes from './routes';
+import { justWhite, soulBlack } from './theme/colors';
 
 const App = () => {
   const initialise = useActions(actions => actions.initialise);
 
   useEffect(() => {
-    initialise()
-  }, [initialise])
-  
+    initialise();
+  }, [initialise]);
+
   return (
     <>
       <GlobalStyles />
       <Routes />
     </>
-  )
-}
+  );
+};
 
 export default App;
 

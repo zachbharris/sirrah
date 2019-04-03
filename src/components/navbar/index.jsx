@@ -1,29 +1,31 @@
-import React from "react";
-import { useStore } from "easy-peasy";
-import styled, { keyframes } from "styled-components";
-import { Link } from "react-router-dom";
-import { animated, useSpring, config } from "react-spring";
+import React from 'react';
+import { useStore } from 'easy-peasy';
+import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { animated, useSpring, config } from 'react-spring';
 
-import { justWhite, hensonGold } from "../../theme/colors";
-import socialMedia from "../../data/socialMedia.json";
+import { justWhite, hensonGold } from '../../theme/colors';
+import socialMedia from '../../data/socialMedia.json';
 
 const Navbar = () => {
   const loading = useStore(state => state.loading);
   const props = useSpring({
-    transform: `translateY(${ loading ? "-100%" : "0" })`,
+    transform: `translateY(${loading ? '-100%' : '0'})`,
     config: config.gentle
   });
-
 
   return (
     <animated.div style={props}>
       <Wrapper>
         <HomeLink className="home" to="/">
-          <img src={`${process.env.PUBLIC_URL  }/favicon.png`} alt="call me emoji" />
+          <img
+            src={`${process.env.PUBLIC_URL}/favicon.png`}
+            alt="call me emoji"
+          />
           <span>Zach Harris</span>
           <span>UI Engineer</span>
         </HomeLink>
-        
+
         <SocialMedia>
           {socialMedia.map((social, index) => {
             return (
@@ -36,13 +38,13 @@ const Navbar = () => {
               >
                 <i className={social.icon} />
               </a>
-            )
+            );
           })}
         </SocialMedia>
       </Wrapper>
     </animated.div>
-  )
-}
+  );
+};
 
 const wiggle = keyframes`
   0% {
@@ -113,7 +115,7 @@ const SocialMedia = styled.div`
     margin-left: 0.25rem;
 
     transition: background-color ease-in-out 100ms;
-  
+
     &:hover {
       background-color: ${hensonGold}50;
     }
@@ -129,7 +131,7 @@ const Wrapper = styled.nav`
   margin-bottom: 1.5rem;
 
   @media screen and (max-width: 640px) {
-   flex-direction: column;
+    flex-direction: column;
   }
 `;
 
