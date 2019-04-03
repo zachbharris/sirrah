@@ -22,7 +22,7 @@ const Navbar = () => {
               href={social.href}
               title={social.title}
               target="_blank"
-              rel="noopener nofollower"
+              rel="noopener noreferrer"
             >
               <i className={social.icon} />
             </a>
@@ -42,6 +42,10 @@ const HomeLink = styled(Link)`
   font-weight: normal;
   font-size: 1rem;
   color: ${justWhite};
+
+  @media screen and (max-width: 640px) {
+    margin-bottom: 0.5rem;
+  }
 
   img {
     height: 1rem;
@@ -89,6 +93,10 @@ const Wrapper = styled.nav`
   padding: 0.5rem 1rem;
   border-bottom: 1px solid ${hensonGold};
   margin-bottom: 1.5rem;
+
+  @media screen and (max-width: 640px) {
+   flex-direction: column;
+  }
 `;
 
 export default Navbar;

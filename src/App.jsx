@@ -34,5 +34,8 @@ const GlobalStyles = createGlobalStyle`
   body { 
     margin: 0;
     position: relative;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
   }
 `;

@@ -10,7 +10,7 @@ import { justWhite } from "../../theme/colors";
 
 const Card = ({ title, description, languages, company, link }) => {
   return (
-    <Wrapper href={link} target="_blank" rel="noopenner nofollower">
+    <Wrapper href={link} target="_blank" rel="noopener noreferrer">
       <Title title={title} />
       <Description description={description} />
       <Languages languages={languages} />

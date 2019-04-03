@@ -72,10 +72,17 @@ const Container = styled.div`
   grid-gap: 2rem;
   grid-template-columns: 230px 1fr;
   grid-template-areas: "profile content";
-  max-width: 902px;
-  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
+
+  @media screen and (max-width: 960px) {
+    margin: 0 1rem;
+  }
+
+  @media screen and (max-width: 940px) {
+    grid-template-columns: auto;
+    grid-template-areas: "profile" "content";
+  }
 `;
 
 const Profile = styled.div`
@@ -133,6 +140,7 @@ const ProfileItem = styled.div`
 
 const Content = styled.div`
   grid-area: content;
+  width: 100%;
 
   h2 {
     font-size: 1.5rem;
