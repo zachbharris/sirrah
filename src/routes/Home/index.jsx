@@ -59,7 +59,14 @@ const HomePage = () => {
           <h2 style={{ fontSize: '1rem', fontWeight: 600 }}>Organizations</h2>
           <OrgGroup>
             {orgs.map(org => {
-              return <Org key={org.id} src={org.avatar_url} alt={org.login} />;
+              return (
+                <Org
+                  key={org.id}
+                  src={org.avatar_url}
+                  alt={org.login}
+                  title={org.login}
+                />
+              );
             })}
           </OrgGroup>
         </Profile>
