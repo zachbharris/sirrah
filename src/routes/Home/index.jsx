@@ -2,10 +2,10 @@ import React from "react";
 import { useStore } from "easy-peasy";
 import styled from "styled-components";
 import Helmet from "react-helmet";
+import { animated, useSpring, config } from "react-spring";
 
 import Card from "../../components/card";
 import Divider from "../../components/divider";
-import ExternalLink from "../../components/externalLink";
 import work from "../../data/work.json";
 
 import { border } from "../../theme/colors";
@@ -13,57 +13,72 @@ import { border } from "../../theme/colors";
 const HomePage = () => {
   const projects = useStore(state => state.projects.data);
   const user = useStore(state => state.user.data);
+  const loading = useStore(state => state.loading);
+
+  const props = useSpring({
+    from: {
+      opacity: 0
+    },
+    to: {
+      opacity: loading ? 0 : 1,
+      transform: `translateY(${ loading ? "-1rem" : "0" })`
+    },
+    delay: 500,
+    config: config.slow
+  });
+
   return (
-    <Container>
-      <Helmet
-        meta={[
-          { name: "description", content: user.bio }
-        ]}
-      />
-      <Profile>
-        <ProfileImage src={user.avatar_url} alt={user.name} />
-        <ProfileName>{user.name}</ProfileName>
-        <ProfileUsername>{user.login}</ProfileUsername>
-        <Divider />
-        {user.bio && <ProfileDesc>{user.bio}</ProfileDesc>}
-        {user.company && (
-          <ProfileItem>
-            <div>
-              <i className="fas fa-user-friends" />
-            </div>
-            <span>{user.company}</span>
-          </ProfileItem>
-        )}
-        
-        {user.location && (
-          <ProfileItem>
-            <div>
-              <i className="fas fa-map-marker-alt" />
-            </div>
-            <span>{user.location}</span>
-          </ProfileItem>
-        )}
-      </Profile>
+    <animated.div style={props}>
+      <Container>
+        <Helmet
+          meta={[
+            { name: "description", content: user.bio }
+          ]}
+        />
+        <Profile>
+          <ProfileImage src={user.avatar_url} alt={user.name} />
+          <ProfileName>{user.name}</ProfileName>
+          <ProfileUsername>{user.login}</ProfileUsername>
+          <Divider />
+          {user.bio && <ProfileDesc>{user.bio}</ProfileDesc>}
+          {user.company && (
+            <ProfileItem>
+              <div>
+                <i className="fas fa-user-friends" />
+              </div>
+              <span>{user.company}</span>
+            </ProfileItem>
+          )}
+          
+          {user.location && (
+            <ProfileItem>
+              <div>
+                <i className="fas fa-map-marker-alt" />
+              </div>
+              <span>{user.location}</span>
+            </ProfileItem>
+          )}
+        </Profile>
 
-      <Content>
-        <h2>Projects</h2>
-        <Card.Group>
-          {projects.map(project => {
-            const { name, description, language, html_url } = project;
-            return <Card key={project.id} title={name} description={description} languages={language} link={html_url} />
-          })}
-        </Card.Group>
-        <ExternalLink href="https://github.com/zachbharris?tab=repositories" content="view all repositories →" align="right" />
+        <Content>
+          <h2>Projects</h2>
+          <Card.Group>
+            {projects.map(project => {
+              const { name, description, language, html_url } = project;
+              return <Card key={project.id} title={name} description={description} languages={language} link={html_url} />
+            })}
+          </Card.Group>
 
-        <h2>Work</h2>
-        <Card.Group>
-          {work.map((w, index) => {
-            const { name, description, language, company, url } = w;
-            return <Card key={index} title={name} description={description} languages={language} company={company} link={url} />
-          })}
-        </Card.Group>
-      </Content>
-    </Container>
+          <h2>Work</h2>
+          <Card.Group>
+            {work.map((w, index) => {
+              const { name, description, language, company, url } = w;
+              return <Card key={index} title={name} description={description} languages={language} company={company} link={url} />
+            })}
+          </Card.Group>
+        </Content>
+      </Container>
+    </animated.div>
   )
 }
 

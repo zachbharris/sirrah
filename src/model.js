@@ -1,8 +1,9 @@
 import { thunk, action } from "easy-peasy";
 import axios from "axios";
+import wait from "waait";
 
 const model = {
-  loading: false,
+  loading: true,
   projects: {
     data: [],
 
@@ -16,9 +17,13 @@ const model = {
       await axios
         .get("https://api.github.com/users/zachbharris/repos")
         .then(res => {
-          const activeProjects = [152986140, 137087074, 149695011, 136203579];
+          const activeProjects = [152986140, 137087074, 149695011, 136203579, 179188463];
           const filteredProjects = res.data.filter(project => {
             return activeProjects.includes(project.id);
+          });
+
+          filteredProjects.push({
+            id: 0, name: "view all repositories →", html_url: "https://github.com/zachbharris?tab=repositories", description: "", language: ""
           })
           actions.fetched(filteredProjects)
         })
@@ -52,6 +57,7 @@ const model = {
     await dispatch.isLoading(true);
     await dispatch.user.fetchUser();
     await dispatch.projects.fetchProjects();
+    // await wait(1000);
     await dispatch.isLoading(false);
   })
 }

@@ -16,7 +16,7 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {loading ? <p>Loading...</p> : <Routes />}
+      <Routes />
     </>
   )
 }

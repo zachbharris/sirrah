@@ -1,35 +1,44 @@
 import React from "react";
+import { useStore } from "easy-peasy";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { animated, useSpring } from "react-spring";
 
 import { justWhite, hensonGold } from "../../theme/colors";
 import socialMedia from "../../data/socialMedia.json";
 
 const Navbar = () => {
+  const loading = useStore(state => state.loading);
+  const props = useSpring({
+    transform: `translateY(${ loading ? "-3rem" : "0" })`
+  });
+
   return (
-    <Wrapper>
-      <HomeLink className="home" to="/">
-        <img src={process.env.PUBLIC_URL + "/favicon.png"} alt="call me emoji" />
-        <span>Zach Harris</span>
-        <span>UI Engineer</span>
-      </HomeLink>
-      
-      <SocialMedia>
-        {socialMedia.map((social, index) => {
-          return (
-            <a
-              key={index}
-              href={social.href}
-              title={social.title}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className={social.icon} />
-            </a>
-          )
-        })}
-      </SocialMedia>
-    </Wrapper>
+    <animated.div style={props}>
+      <Wrapper>
+        <HomeLink className="home" to="/">
+          <img src={process.env.PUBLIC_URL + "/favicon.png"} alt="call me emoji" />
+          <span>Zach Harris</span>
+          <span>UI Engineer</span>
+        </HomeLink>
+        
+        <SocialMedia>
+          {socialMedia.map((social, index) => {
+            return (
+              <a
+                key={index}
+                href={social.href}
+                title={social.title}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className={social.icon} />
+              </a>
+            )
+          })}
+        </SocialMedia>
+      </Wrapper>
+    </animated.div>
   )
 }
 
