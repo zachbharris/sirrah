@@ -27,6 +27,11 @@ const model = {
             return activeProjects.includes(project.id);
           });
 
+          // filter by last update (pushed commit)
+          filteredProjects.sort((a, b) => {
+            return new Date(b.pushed_at) - new Date(a.pushed_at);
+          });
+
           filteredProjects.push({
             id: 0,
             name: 'view all repositories →',
