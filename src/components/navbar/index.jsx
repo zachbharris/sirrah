@@ -9,8 +9,15 @@ import socialMedia from '../../data/socialMedia.json';
 
 const Navbar = () => {
   const loading = useStore(state => state.loading);
+
   const props = useSpring({
-    transform: `translateY(${loading ? '-100%' : '0'})`,
+    from: {
+      opacity: 0
+    },
+    to: {
+      transform: `translateY(${loading ? '-100%' : '0'})`,
+      opacity: loading ? 0 : 1
+    },
     config: config.gentle
   });
 

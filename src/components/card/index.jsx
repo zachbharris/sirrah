@@ -38,13 +38,12 @@ const Wrapper = styled.a`
     'title title'
     'description description'
     'languages company';
-  grid-templatecolumns: 1fr auto;
+  grid-template-columns: 1fr auto;
 
   border: 1px solid #656565;
   border-radius: 3px;
   color: ${justWhite};
   padding: 1rem;
-  max-width: 640px;
   text-decoration: none;
 `;
 
@@ -54,7 +53,7 @@ const CardGroup = styled.div`
   grid-gap: 0.5rem;
   margin-bottom: 1.5rem;
 
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 640px) {
     grid-template-columns: 1fr;
   }
 `;

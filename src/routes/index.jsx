@@ -1,15 +1,17 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+import StatusBar from '../components/statusbar';
 
 // pages
-import HomePage from "./Home";
+import HomePage from './Home';
 
 const Routes = () => (
   <BrowserRouter>
     <>
+      <StatusBar />
       <Navbar />
       <Switch>
         <Route path="/" component={HomePage} />
@@ -18,6 +20,6 @@ const Routes = () => (
       <Footer />
     </>
   </BrowserRouter>
-)
+);
 
 export default Routes;
