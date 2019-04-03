@@ -16,11 +16,15 @@ const Footer = () => {
 export default Footer;
 
 const Wrapper = styled.footer`
+  display: block;
   border-top: 1px solid ${border};
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   margin: 3rem auto 0;
   max-width: 902px;
-  width: 100%;
   text-align: center;
   color: ${justWhite};
+
+  @media screen and (max-width: 960px) {
+    margin: 3rem 1rem 0;
+  }
 `;
