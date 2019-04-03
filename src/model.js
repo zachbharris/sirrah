@@ -32,7 +32,7 @@ const model = {
   user: {
     data: {},
 
-    //actions
+    // actions
     fetched: action((state, payload) => {
       state.data = payload;
     }),

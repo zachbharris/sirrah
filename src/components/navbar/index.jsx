@@ -19,7 +19,7 @@ const Navbar = () => {
     <animated.div style={props}>
       <Wrapper>
         <HomeLink className="home" to="/">
-          <img src={process.env.PUBLIC_URL + "/favicon.png"} alt="call me emoji" />
+          <img src={`${process.env.PUBLIC_URL  }/favicon.png`} alt="call me emoji" />
           <span>Zach Harris</span>
           <span>UI Engineer</span>
         </HomeLink>
