@@ -1,6 +1,6 @@
 import React from "react";
 import { useStore } from "easy-peasy";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
@@ -42,6 +42,21 @@ const Navbar = () => {
   )
 }
 
+const wiggle = keyframes`
+  0% {
+    transform: rotate(0deg)
+  }
+  33% {
+    transform: rotate(15deg)
+  }
+  66% {
+    transform: rotate(-15deg)
+  }
+  100% {
+    transform: rotate(0deg)
+  }
+`;
+
 const HomeLink = styled(Link)`
   display: flex;
   align-items: center;
@@ -51,6 +66,12 @@ const HomeLink = styled(Link)`
   font-weight: normal;
   font-size: 1rem;
   color: ${justWhite};
+
+  &:hover {
+    img {
+      animation: ${wiggle} ease 500ms forwards;
+    }
+  }
 
   @media screen and (max-width: 640px) {
     margin-bottom: 0.5rem;
@@ -88,6 +109,8 @@ const SocialMedia = styled.div`
     text-decoration: none;
     color: ${justWhite};
     margin-left: 0.25rem;
+
+    transition: background-color ease-in-out 100ms;
   
     &:hover {
       background-color: ${hensonGold}50;
