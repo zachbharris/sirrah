@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { animated, useSpring, config } from 'react-spring';
 
-import { justWhite, hensonGold } from '../../theme/colors';
+import { justWhite, hensonGold, soulBlack } from '../../theme/colors';
 import socialMedia from '../../data/socialMedia.json';
 
 const Navbar = () => {
@@ -130,12 +130,15 @@ const SocialMedia = styled.div`
 `;
 
 const Wrapper = styled.nav`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid ${hensonGold};
+  background-color: ${soulBlack};
   margin-bottom: 1.5rem;
+  z-index: 1;
 
   @media screen and (max-width: 640px) {
     flex-direction: column;
