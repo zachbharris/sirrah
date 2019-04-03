@@ -2,7 +2,7 @@ import React from "react";
 import { useStore } from "easy-peasy";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
-import { animated, useSpring } from "react-spring";
+import { animated, useSpring, config } from "react-spring";
 
 import { justWhite, hensonGold } from "../../theme/colors";
 import socialMedia from "../../data/socialMedia.json";
@@ -10,8 +10,10 @@ import socialMedia from "../../data/socialMedia.json";
 const Navbar = () => {
   const loading = useStore(state => state.loading);
   const props = useSpring({
-    transform: `translateY(${ loading ? "-3rem" : "0" })`
+    transform: `translateY(${ loading ? "-100%" : "0" })`,
+    config: config.gentle
   });
+
 
   return (
     <animated.div style={props}>

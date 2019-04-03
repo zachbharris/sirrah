@@ -12,8 +12,9 @@ const Footer = () => {
       opacity: 0,
     },
     to: {
-      opacity: loading ? 0 : 1
-    }
+      opacity: loading ? 0 : 1,
+    },
+    delay: 1250
   });
   const year = new Date().getFullYear();
 
@@ -32,12 +33,12 @@ const Wrapper = styled.footer`
   display: block;
   border-top: 1px solid ${border};
   padding: 1.5rem 0;
-  margin: 3rem auto 0;
+  margin: 1rem auto 0;
   max-width: 902px;
   text-align: center;
   color: ${justWhite};
 
   @media screen and (max-width: 960px) {
-    margin: 3rem 1rem 0;
+    margin: 1rem 1rem 0;
   }
 `;

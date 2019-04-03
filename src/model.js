@@ -1,6 +1,5 @@
 import { thunk, action } from "easy-peasy";
 import axios from "axios";
-import wait from "waait";
 
 const model = {
   loading: true,
@@ -57,7 +56,6 @@ const model = {
     await dispatch.isLoading(true);
     await dispatch.user.fetchUser();
     await dispatch.projects.fetchProjects();
-    // await wait(1000);
     await dispatch.isLoading(false);
   })
 }

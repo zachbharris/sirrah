@@ -23,8 +23,8 @@ const HomePage = () => {
       opacity: loading ? 0 : 1,
       transform: `translateY(${ loading ? "-1rem" : "0" })`
     },
-    delay: 500,
-    config: config.slow
+    delay: 750,
+    config: config.molasses
   });
 
   return (
