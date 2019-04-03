@@ -13,6 +13,7 @@ import { border } from '../../theme/colors';
 const HomePage = () => {
   const projects = useStore(state => state.projects.data);
   const user = useStore(state => state.user.data);
+  const orgs = useStore(state => state.orgs.data);
   const loading = useStore(state => state.loading);
 
   const props = useSpring({
@@ -54,6 +55,13 @@ const HomePage = () => {
               <span>{user.location}</span>
             </ProfileItem>
           )}
+          <Divider />
+          <h2 style={{ fontSize: '1rem', fontWeight: 600 }}>Organizations</h2>
+          <OrgGroup>
+            {orgs.map(org => {
+              return <Org key={org.id} src={org.avatar_url} alt={org.login} />;
+            })}
+          </OrgGroup>
         </Profile>
 
         <Content>
@@ -115,9 +123,6 @@ const Container = styled.div`
 
 const Profile = styled.div`
   grid-area: profile;
-  img {
-    width: 100%;
-  }
 `;
 
 const ProfileImage = styled.img`
@@ -126,7 +131,7 @@ const ProfileImage = styled.img`
   border-radius: 3px;
 `;
 
-const ProfileName = styled.h2`
+const ProfileName = styled.h1`
   font-size: 1.5rem;
   margin: 1rem 0 0;
   font-weight: 600;
@@ -164,6 +169,18 @@ const ProfileItem = styled.div`
   span {
     font-size: 0.875rem;
   }
+`;
+
+const OrgGroup = styled.div`
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, 2rem);
+`;
+
+const Org = styled.img`
+  height: 2rem;
+  width: 2rem;
+  border-radius: 3px;
 `;
 
 const Content = styled.div`

@@ -55,6 +55,22 @@ const model = {
         .catch(err => console.log(err));
     })
   },
+  orgs: {
+    data: [],
+
+    // actions
+    fetched: action((state, payload) => {
+      state.data = payload;
+    }),
+
+    // thunks
+    fetchOrgs: thunk(async actions => {
+      await axios
+        .get('https://api.github.com/users/zachbharris/orgs')
+        .then(res => actions.fetched(res.data))
+        .catch(err => console.log(err));
+    })
+  },
 
   // actions
   isLoading: action((state, payload) => {
@@ -66,6 +82,7 @@ const model = {
     await dispatch.isLoading(true);
     await dispatch.user.fetchUser();
     await dispatch.projects.fetchProjects();
+    await dispatch.orgs.fetchOrgs();
     await dispatch.isLoading(false);
   })
 };
