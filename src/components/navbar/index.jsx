@@ -6,9 +6,11 @@ import { animated, useSpring, config } from 'react-spring';
 
 import { justWhite, hensonGold, soulBlack } from '../../theme/colors';
 import socialMedia from '../../data/socialMedia.json';
+import Available from './Available';
 
 const Navbar = () => {
   const loading = useStore(state => state.loading);
+  const hireable = useStore(state => state.user.data.hireable);
 
   const props = useSpring({
     from: {
@@ -23,7 +25,7 @@ const Navbar = () => {
 
   return (
     <animated.div style={props}>
-      <Wrapper>
+      <Wrapper hireable={hireable}>
         <HomeLink className="home" to="/">
           <img
             src={`${process.env.PUBLIC_URL}/favicon.png`}
@@ -32,6 +34,16 @@ const Navbar = () => {
           <span>Zach Harris</span>
           <span>UI Engineer</span>
         </HomeLink>
+
+        {hireable && (
+          <Available
+            text="I am currently looking for a new position!"
+            link={{
+              href: 'mailto:hi@zachbharris.com',
+              text: 'Lets Chat!'
+            }}
+          />
+        )}
 
         <SocialMedia>
           {socialMedia.map((social, index) => {
@@ -69,9 +81,9 @@ const wiggle = keyframes`
 `;
 
 const HomeLink = styled(Link)`
+  grid-area: home;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 
   text-decoration: none;
   font-weight: normal;
@@ -82,10 +94,6 @@ const HomeLink = styled(Link)`
     img {
       animation: ${wiggle} ease 500ms forwards;
     }
-  }
-
-  @media screen and (max-width: 640px) {
-    margin-bottom: 0.5rem;
   }
 
   img {
@@ -102,9 +110,14 @@ const HomeLink = styled(Link)`
       opacity: 0.5;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    justify-content: center;
+  }
 `;
 
 const SocialMedia = styled.div`
+  grid-area: links;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -127,21 +140,47 @@ const SocialMedia = styled.div`
       background-color: ${hensonGold}50;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    justify-content: center;
+  }
 `;
 
 const Wrapper = styled.nav`
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-areas: ${({ hireable }) => {
+    if (hireable) return `'home available links'`;
+    return `'home links'`;
+  }};
+  grid-gap: 1rem;
+
   align-items: center;
   justify-content: space-between;
+
   padding: 0.5rem 1rem;
   border-bottom: 1px solid ${hensonGold};
   background-color: ${soulBlack};
   margin-bottom: 1.5rem;
   z-index: 1;
 
-  @media screen and (max-width: 640px) {
-    flex-direction: column;
+  ${({ hireable }) => {
+    if (hireable)
+      return `
+        @media screen and (max-width: 850px) {
+          grid-template-areas:
+            'available available'
+            'home links';
+        };
+      `;
+    return null;
+  }}
+
+  @media screen and (max-width: 500px) {
+    grid-template-areas: ${({ hireable }) => {
+      return hireable ? `"available" "home" "links"` : `"home" "links"`;
+    }};
+    justify-content: center;
   }
 `;
 
