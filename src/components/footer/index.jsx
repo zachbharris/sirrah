@@ -38,6 +38,10 @@ const Wrapper = styled.footer`
   text-align: center;
   color: ${justWhite};
 
+  span {
+    font-size: 0.875rem;
+  }
+
   @media screen and (max-width: 960px) {
     margin: 1rem 1rem 0;
   }

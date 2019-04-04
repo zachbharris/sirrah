@@ -28,6 +28,13 @@ const Wrapper = styled.div`
     font-weight: 600;
     text-decoration: none;
   }
+
+  span {
+    @media screen and (max-width: 380px) {
+      text-align: center;
+      max-width: 80%;
+    }
+  }
 `;
 
 const pulse = keyframes`
