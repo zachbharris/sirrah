@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 
   span {
     @media screen and (max-width: 380px) {
-      text-align: center;
+      text-align: left;
       max-width: 80%;
     }
   }
