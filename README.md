@@ -1,7 +1,5 @@
 # Sirrah
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/da8c8084-3019-41c0-bfba-16a175c3c41c/deploy-status)](https://app.netlify.com/sites/zachbharris/deploys)
-
 ```
 function reverse(str){
   return str.split("").reverse().join("");
